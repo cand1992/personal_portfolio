@@ -5,7 +5,10 @@ class BlogForm extends Component {
 	state = { category: '' }
 
 	componentDidMount() {
-
+		if (this.props.params.id) {
+			const { category } = this.props
+			this.setState({ category })
+		}
 	}
 
 	handleChange = (e) => {
@@ -15,8 +18,13 @@ class BlogForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.addBlog(this.state)
-		this.props.toggleAdd()
+		if (this.props.params.id) {
+			this.props.updateBlog(this.props.params.id, this.state)
+			this.props.toggleEdit()
+		} else {
+			this.props.addBlog(this.state)
+			this.props.toggleAdd()
+		}
 		this.setState({ category: '' })
 	}
 

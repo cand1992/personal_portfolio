@@ -1,16 +1,12 @@
 import React from 'react';
-import BlogHome from './BlogHome';
 import Blog from './Blog';
 import { Button } from 'semantic-ui-react';
 
-const BlogList = ({blogs}) => (
+const BlogList = ({ blogs }) => (
 	<>
-	{
-		<Button.Group buttons={blogs.map( b => {
-			<Blog key={b.id} {...b} />
+		{blogs.map( b => {
+			return(<Blog key={b.id} {...b} />)
 		})}
-		/>
-	}
 	</>
 )
 

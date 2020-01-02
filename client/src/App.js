@@ -3,8 +3,9 @@ import { Grid } from 'semantic-ui-react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/portfolio_things/Home';
 import Navbar from './components/shared/Navbar';
-import Blog from './components/blog/Blog';
+import BlogHome from './components/blog/BlogHome';
 import NoMatch from './components/shared/NoMatch';
+import BlogShow from './components/blog/BlogShow';
 
 const App = () => (
   <Grid>
@@ -15,8 +16,8 @@ const App = () => (
       <Grid.Column width={15}>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/blog" component={Blog} />
-          <Route exact path="/blogs/:id" />
+          <Route exact path="/blog" component={BlogHome} />
+          <Route exact path="/blogs/:id" component={BlogShow} />
           <Route component={NoMatch} />
         </Switch>
       </Grid.Column>

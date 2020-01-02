@@ -37,9 +37,10 @@ class BlogHome extends Component {
 		const { blogs, adding } = this.state
 		return(
 			<>
-				<h1>Welcome to the blog!</h1>
 				<Container textAlign='center'>
-				<BlogList blogs={blogs}/>
+				<h1>Welcome to the blog!</h1>
+				<h3>Select Category below to see blog posts.</h3>
+				<BlogList blogs={blogs} />
 				{	
 					adding ?
 					<BlogForm addBlog={this.addBlog} toggleAdd={this.toggleAdd} />
