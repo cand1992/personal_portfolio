@@ -24,8 +24,7 @@ class Api::PostsController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:id])
-		@post.destroy
+		@blog.posts.find(params[:id]).destroy
 		render json: { message: 'Post Deleted Successfully.' }
 	end
 
@@ -35,7 +34,7 @@ class Api::PostsController < ApplicationController
 	end
 
 	def set_blog
-		@blog = Blog.find(params[:id])
+		@blog = Blog.find(params[:blog_id])
 	end
 
 end
