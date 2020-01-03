@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import BlogForm from './BlogForm';
 import BlogList from './BlogList';
 import BlogHome from './BlogHome';
-import { Button } from 'semantic-ui-react';
+import { Button, Container } from 'semantic-ui-react';
 import axios from 'axios';
+import PostList from './PostList';
 
 class BlogShow extends Component {
 	state = { blogs: [], posts: [], editing: false }
@@ -54,6 +55,20 @@ class BlogShow extends Component {
 	      console.log(err)
 	    })
 	}
+
+	addPost = (post) => {
+	  // add to the back end
+	  axios.post(`/api/blogs/${this.props.match.params.id}/posts`, post)
+	    .then( res => {
+	      // add to our front end / state
+	      const { blogs } = this.state
+	      this.setState({ blogs: [...blogs, res.data]})
+	    })
+	    .catch( err => {
+	      console.log(err)
+	    })
+	}
+
 	render() {
 		const { id } = this.props.match.params
 		const { editing } = this.state
@@ -63,7 +78,11 @@ class BlogShow extends Component {
 					editing ? <BlogForm {...this.props.match} updateBlog={this.updateBlog} toggleEdit={this.toggleEdit} /> :
 				<>
 				<BlogHome />
-				<Button.Group fixed vertical labeled icon floated='right'>
+				<Container textAlign='center'>
+				<p>Eventually my Posts will go here along with their CRUD actions.</p>
+				<PostList posts={this.state.posts} />
+				</Container>
+				<Button.Group vertical labeled icon floated='right'>
 					<Button icon='trash' content='Delete' onClick={() => this.deleteBlog(id)} />
 					<Button icon='pencil' content='Edit' onClick={() => this.toggleEdit()} />
 				</Button.Group>

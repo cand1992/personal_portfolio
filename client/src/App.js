@@ -6,14 +6,15 @@ import Navbar from './components/shared/Navbar';
 import BlogHome from './components/blog/BlogHome';
 import NoMatch from './components/shared/NoMatch';
 import BlogShow from './components/blog/BlogShow';
+import './App.css';
 
 const App = () => (
-  <Grid>
+  <Grid className='container1'>
     <Grid.Row>
-      <Grid.Column width={1}>
+      <Grid.Column width={1} className='wrapper'>
         <Navbar />
       </Grid.Column>
-      <Grid.Column width={15}>
+      <Grid.Column width={15} className='wrapper'>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/blog" component={BlogHome} />

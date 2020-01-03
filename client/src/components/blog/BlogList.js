@@ -4,9 +4,11 @@ import { Button } from 'semantic-ui-react';
 
 const BlogList = ({ blogs }) => (
 	<>
+	<Button.Group>
 		{blogs.map( b => {
-			return(<Blog key={b.id} {...b} />)
+			return([<Blog key={b.id} {...b} />])
 		})}
+	</Button.Group>
 	</>
 )
 

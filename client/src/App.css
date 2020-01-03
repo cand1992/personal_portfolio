@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.container1 {
+  background-image: url('https://images.unsplash.com/photo-1528626062332-b407f9003051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2188&q=80');
+  background-size: cover;
+  height: calc(100vh + 30px);
+}
+
+.wrapper {
+  background-color: rgba( 255, 255, 255, 0.7);
+}
