@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BlogForm from './BlogForm';
 import BlogList from './BlogList';
 import BlogHome from './BlogHome';
-import { Button, Container } from 'semantic-ui-react';
+import { Button, Container, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import PostList from './PostList';
 
@@ -79,8 +79,10 @@ class BlogShow extends Component {
 				<>
 				<BlogHome />
 				<Container textAlign='center'>
+				<Segment>
 				<p>Eventually my Posts will go here along with their CRUD actions.</p>
 				<PostList posts={this.state.posts} />
+				</Segment>
 				</Container>
 				<Button.Group vertical labeled icon floated='right'>
 					<Button icon='trash' content='Delete' onClick={() => this.deleteBlog(id)} />
